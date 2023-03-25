@@ -21,3 +21,5 @@ start = int(input("Введите первое число: "))
 end = int(input("Введите второе число: "))
 
 print(sum_range(start, end))
+
+fjfioiegoirgoghoiehgoriuhio
