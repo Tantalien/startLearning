@@ -22,4 +22,4 @@ end = int(input("Введите второе число: "))
 
 print(sum_range(start, end))
 
-fjfioiegoirgoghoiehgoriuhio
+#это по истине говносайт с говнопрограммой
