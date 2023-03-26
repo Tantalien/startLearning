@@ -6,15 +6,11 @@
 '''
 
 str = input('Введите текст:')
-text = str.replace("а", "ара")
-print(text)
 
 
 
-
-
-
-
+'''text = str.replace("а", "ара")
+print(text)'''
 
 '''text = list(str) # из текста в список
 print(text)'''
