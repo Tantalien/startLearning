@@ -17,9 +17,14 @@ def sum_range(start, end):
   return a
 
 
-start = int(input("Введите первое число: "))
-end = int(input("Введите второе число: "))
+start_str = input("Введите первое число: ")
+end_str = input("Введите второе число: ")
 
-print(sum_range(start, end))
+try:
+  end = int(end_str)
+  start = int(start_str)
+  print(sum_range(start, end))
+except (SystemError, ValueError):
+  print('Вы ввели некорректное число')
 
-# теперь смотри, как нужно было создавать и пушить файл
+
