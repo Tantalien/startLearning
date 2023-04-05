@@ -26,17 +26,20 @@ class Ui(QtWidgets.QDialog, Form):
 
     def variable (self):                              # создала переменную, вводимую через lineEdit
         z = self.lineEdit.text()
-        self.label_2.setText(self.lineEdit.text())
+        #self.label_2.setText(self.lineEdit.text())
         print(z)
+        #попробовать эту функцию объединить с enter, чтобы она видела z. Или создать наследуемый класс
 
-    '''
+
+'''
     def enter(self):
         global a
         global b
         global c
         global i
         global number
-        q = self.label_2.setText(self.lineEdit.text())
+        z =  
+        #q = self.label_2.setText(self.lineEdit.text()) не верно
 
         while True:
             #q = int(input('Угадай число (от 1 до 100):'))    #пока не понимаю, как сделать, чтобы q была связана с lineEdit
