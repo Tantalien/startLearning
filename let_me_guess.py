@@ -1,37 +1,64 @@
 import random
+import sys
+from PyQt6 import uic, QtWidgets, QtCore
+from PyQt6.QtWidgets import QApplication
+from PyQt6.QtGui import QIcon
 
+Form, _ = uic.loadUiType('Play.ui')
+
+# глобальные переменные
+a = 5  # variable very hot
+b = 10  # variable hot
+c = 20  # variable cold
+i = 2  # fire
 number = random.randint(1, 100)
 
-try:
-    while True:
-        guess = int(input('Угадай число (от 1 до 100):'))
 
-        a = 5             # variable very hot
-        b = 10            # variable hot
-        c = 20            # variable cold
-        i = 2             # fire
+class Ui(QtWidgets.QDialog, Form):
+    def __init__(self):
+        super().__init__()
+        self.setupUi(self)
+        self.setWindowIcon(QIcon('rainbow.png'))
+        self.setWindowTitle('***amazing rainbow***')
+        self.lineEdit.setPlaceholderText('Введите число')
+        #self.pushButton.clicked.connect(self.enter)
+        self.pushButton.clicked.connect(self.variable)
 
-        if number == guess:
-            print('Угадал! Ты умничка')
-            break
-        else:
-            if number - i < guess < number + i:
-                print('Огонь!')
-            elif number - a < guess < number + a:
-                print('Очень горячо')
-            elif number - b < guess < number + b:
-                print('Горячо, но не сильно')
-            elif number - c < guess < number + c:
-                print('Холодно')
-            elif guess > 100 or guess < 1:
-                print('Диапазон загаданного числа от 1 до 100')
+    def variable (self):                              # создала переменную, вводимую через lineEdit
+        z = self.lineEdit.text()
+        self.label_2.setText(self.lineEdit.text())
+        print(z)
+
+    '''
+    def enter(self):
+        global a
+        global b
+        global c
+        global i
+        global number
+        q = self.label_2.setText(self.lineEdit.text())
+
+        while True:
+            #q = int(input('Угадай число (от 1 до 100):'))    #пока не понимаю, как сделать, чтобы q была связана с lineEdit
+            if number == q:
+                self.label_2.setText('Угадал! Ты умничка')
+            if number - i < q < number + i:
+                self.label_2.setText('Огонь!')
+            elif number - a < q < number + a:
+                self.label_2.setText('Очень горячо')
+            elif number - b < q < number + b:
+                self.label_2.setText('Горячо, но не сильно')
+            elif number - c < q < number + c:
+                self.label_2.setText('Холодно')
+            elif guess > 100 or q < 1:
+                self.label_2.setText('Диапазон загаданного числа от 1 до 100')
             else:
-                print('Лёд!')
+                self.label_2.setText('Лёд!')
+       '''
 
-except ValueError:
-    print('Введите корректное значение (не дробное число/не буквы/не символы)')
-
-#опробовать окошко. сделать кнопки рабочими
-#сделать так, чтоб после ошибки не приходилось перезапускать программу
-
+if __name__ == '__main__':
+    app = QApplication(sys.argv)
+    window = Ui()
+    window.show()
+    app.exec()
 
