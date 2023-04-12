@@ -23,27 +23,17 @@ class Ui(QtWidgets.QDialog, Form):
         self.setWindowIcon(QIcon('rainbow.png'))
         self.setWindowTitle('***amazing rainbow***')
         self.lineEdit.setPlaceholderText('Введите число')
-        self.pushButton.clicked.connect(self.variable)
         self.pushButton.clicked.connect(self.enter)
 
-    def variable(self):
-        global x
-        z = self.lineEdit.text()           # создала и распечатала переменную, вводимую через lineEdit
-        x = z
-
     def enter(self):
-        print(x)                           # Проверка. Получилось "достать" переменную 'x' из другой функции
-        while True:
-            global a
-            global b
-            global c
-            global i
-            global number
+        global x
+        global number
+
+        try:
+            x = int(self.lineEdit.text())
 
             if number == x:
                 self.label_2.setText('Угадал! Ты умничка')
-                break
-
             else:
                 if number - i < x < number + i:
                     self.label_2.setText('Огонь!')
@@ -57,6 +47,9 @@ class Ui(QtWidgets.QDialog, Form):
                     self.label_2.setText('Диапазон загаданного числа от 1 до 100')
                 else:
                     self.label_2.setText('Лёд!')
+
+        except (ValueError):
+            self.label_2.setText('Ты че?')
 
 
 if __name__ == '__main__':
